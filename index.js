@@ -46,9 +46,12 @@ app.post("/extract-text", (req, res) => {
     }
 
     pdfParse(req.files.pdfFile).then(result => {
+        doc = result.text
         res.send(result.text);
     });
 });
+
+
 
 
 app.listen(port, () => {
