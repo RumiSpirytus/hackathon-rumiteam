@@ -1,5 +1,9 @@
-// document.getElementById("generateQuestions").addEventListener("click", generateQuestions);
-// document.getElementById("summaryDocument").addEventListener("click", summaryDocument);
+//mainTool.js
+
+const inputFile = document.getElementById("inputFile")
+const btnUpload = document.getElementById("btnUpload")
+const resultText = document.getElementById("resultText")
+
 function general(link) {
     const loadingIndicator = document.getElementById('loadingIndicator');
     loadingIndicator.style.display = 'block';
@@ -33,9 +37,4 @@ btn2.addEventListener("click", function () {
         general("https://hackathon-rumiteam.vercel.app/generate-questions")
     });
 });
-
-const inputFile = document.getElementById("inputFile")
-const btnUpload = document.getElementById("btnUpload")
-const resultText = document.getElementById("resultText")
-
 
