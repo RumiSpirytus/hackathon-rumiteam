@@ -23,10 +23,10 @@ function general(link) {
 }
 
 async function generateQuestions() {
-    general("http://localhost:3000/generate-questions")
+    general("https://hackathon-rumiteam.vercel.app/generate-questions")
 }
 
 
 async function summaryDocument() {
-    general("http://localhost:3000/summary-document")
+    general("https://hackathon-rumiteam.vercel.app/summary-document")
 }
