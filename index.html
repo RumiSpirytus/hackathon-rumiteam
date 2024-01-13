@@ -8,7 +8,11 @@
 	<title>Rumi</title>
 	<style>
 		body {
-			width: 500px;
+			display: flex;
+			justify-content: center;
+			height: 100vh;
+			align-items: center;
+			margin:0
 		}
 
 		.button-1 {
@@ -52,30 +56,34 @@
 		.body-btn {
 			display: flex;
 			flex-direction: row;
-			justify-content: space-around;
-		}
+			justify-content: space-evenly;
+			width:auto;
 
+		}
+		.body-full {
+			width: max-content;
+		}
 		.loading {
 			display: none;
-  width: 120px;
-  height: 22px;
-  border-radius: 20px;
-  color: #514b82;
-  border: 2px solid;
-  position: relative;
-}
-.loading::before {
-  content: "";
-  position: absolute;
-  margin: 2px;
-  inset: 0 100% 0 0;
-  border-radius: inherit;
-  background: currentColor;
-  animation: l6 2s infinite;
-}
-@keyframes l6 {
-    100% {inset:0}
-}
+		width: 120px;
+		height: 22px;
+		border-radius: 20px;
+		color: #514b82;
+		border: 2px solid;
+		position: relative;
+		}
+		.loading::before {
+		content: "";
+		position: absolute;
+		margin: 2px;
+		inset: 0 100% 0 0;
+		border-radius: inherit;
+		background: currentColor;
+		animation: l6 2s infinite;
+		}
+		@keyframes l6 {
+			100% {inset:0}
+		}
 
 		textarea {
 			font-family: Arial, sans-serif;
@@ -98,66 +106,70 @@
 </head>
 
 <br>
-	<div class="mb">
-		<h3>Generate questions and summary documents from your notes.</h>
-	</div>
-
-	<!-- upload file -->
-	<input type="file" id="inputFile" class="mb">
-
-	<div class="body-btn">
-		<div class="mb">
-			<button id="generateQuestions" class="button-1" role="button">
-				Generate Questions
-			</button>
+	<div class="body">
+		
+		<div class="body-full">
+			<div class="mb">
+				<h3>Generate questions and summary documents from your notes.</h3>
+			</div>
+		
+			<!-- upload file -->
+			<input type="file" id="inputFile" class="mb">
+		<div class="body-btn">
+			<div class="mb">
+				<button id="generateQuestions" class="button-1" role="button">
+					Generate Questions
+				</button>
+			</div>
+			<div class="mb">
+				<button id="summaryDocument" class="button-1" role="button">
+					Summary Document
+				</button>
+			</div>
 		</div>
-		<div class="mb">
-			<button id="summaryDocument" class="button-1" role="button">
-				Summary Document
-			</button>
+		<div>
+		<!-- <button type="button" id="btnUpload">Upload</button> -->
+			<div id="loadingIndicator" class="loading"></div>
+			</br>
+	
+			<!-- display file -->
+			<textarea rows="30" cols="110" id="resultText" placeholder="Your PDF text will appear here..."></textarea>
+		</div>
 		</div>
 	</div>
-
-	<!-- <button type="button" id="btnUpload">Upload</button> -->
-	<div id="loadingIndicator" class="loading"></div>
-	</br>
-
-	<!-- display file -->
-	<textarea rows="30" cols="110" id="resultText" placeholder="Your PDF text will appear here..."></textarea>
-
+	
 	<script >
 		document.getElementById("generateQuestions").addEventListener("click", generateQuestions);
-document.getElementById("summaryDocument").addEventListener("click", summaryDocument);
+		document.getElementById("summaryDocument").addEventListener("click", summaryDocument);
 
-const inputFile = document.getElementById("inputFile")
-const btnUpload = document.getElementById("btnUpload")
-const resultText = document.getElementById("resultText")
+		const inputFile = document.getElementById("inputFile")
+		const btnUpload = document.getElementById("btnUpload")
+		const resultText = document.getElementById("resultText")
 
-function general(link) {
-    const loadingIndicator = document.getElementById('loadingIndicator');
-    loadingIndicator.style.display = 'block';
-    const file = inputFile.files[0]
-    const formData = new FormData()
-    formData.append("pdfFile", file)
+		function general(link) {
+			const loadingIndicator = document.getElementById('loadingIndicator');
+			loadingIndicator.style.display = 'block';
+			const file = inputFile.files[0]
+			const formData = new FormData()
+			formData.append("pdfFile", file)
 
-    fetch(link, {
-        method: "POST",
-        body: formData
-    }).then(response => response.json())
-        .then(summaryText => {
-            resultText.value = summaryText.trim()
-            loadingIndicator.style.display = 'none';
-        })
-}
+		fetch(link, {
+			method: "POST",
+			body: formData
+		}).then(response => response.json())
+			.then(summaryText => {
+				resultText.value = summaryText.trim()
+				loadingIndicator.style.display = 'none';
+			})
+	}
 
-async function generateQuestions() {
-    general("https://hackathon-rumiteam.vercel.app/generate-questions")
-}
+		async function generateQuestions() {
+			general("https://hackathon-rumiteam.vercel.app/generate-questions")
+		}
 
-
-async function summaryDocument() {
-    general("https://hackathon-rumiteam.vercel.app/summary-document")
-}
+		async function summaryDocument() {
+			general("https://hackathon-rumiteam.vercel.app/summary-document")
+		}
 	</script>
 </body>
 
