@@ -1,85 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" href="icon.png" />
-		<title>Rumi</title>
-		<style>
-			body {
-				width: 500px;
-			}
 
-			.button-1 {
-				background-color: black;
-				border-radius: 6px;
-				border-style: none;
-				box-sizing: border-box;
-				color: #ffffff;
-				cursor: pointer;
-				display: inline-block;
-				font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
-					sans-serif;
-				font-size: 14px;
-				font-weight: 500;
-				height: 40px;
-				min-width: 180px;
-				line-height: 20px;
-				list-style: none;
-				margin: 0;
-				outline: none;
-				padding: 10px 16px;
-				position: relative;
-				text-align: center;
-				text-decoration: none;
-				transition: color 100ms;
-				vertical-align: baseline;
-				user-select: none;
-				-webkit-user-select: none;
-				touch-action: manipulation;
-			}
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" href="icon.png" />
+	<title>Rumi</title>
+	<style>
+		body {
+			width: 500px;
+		}
 
-			.button-1:hover,
-			.button-1:focus {
-				opacity: 0.8;
-			}
+		.button-1 {
+			background-color: black;
+			border-radius: 6px;
+			border-style: none;
+			box-sizing: border-box;
+			color: #ffffff;
+			cursor: pointer;
+			display: inline-block;
+			font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
+				sans-serif;
+			font-size: 14px;
+			font-weight: 500;
+			height: 40px;
+			min-width: 180px;
+			line-height: 20px;
+			list-style: none;
+			margin: 0;
+			outline: none;
+			padding: 10px 16px;
+			position: relative;
+			text-align: center;
+			text-decoration: none;
+			transition: color 100ms;
+			vertical-align: baseline;
+			user-select: none;
+			-webkit-user-select: none;
+			touch-action: manipulation;
+		}
 
-			.mb {
-				margin-bottom: 20px;
-			}
-			.body-btn {
-				display: flex;
-				flex-direction: row;
-				justify-content: space-around;
-			}
-		</style>
-	</head>
+		.button-1:hover,
+		.button-1:focus {
+			opacity: 0.8;
+		}
 
-	<body>
+		.mb {
+			margin-bottom: 20px;
+		}
+
+		.body-btn {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="mb">
+		<h3>Generate questions and summary documents from your notes.</h>
+	</div>
+	<!-- upload file -->
+	<input type="file" id="inputFile" class="mb">
+
+	<div class="body-btn">
 		<div class="mb">
-			<h3>Generate questions and summary documents from your notes.</h>
+			<button id="generateQuestions" class="button-1" role="button">
+				Generate Questions
+			</button>
 		</div>
-		<div class="body-btn">
-			<div class="mb">
-				<button id="generateQuestions" class="button-1" role="button">
-					Generate Questions
-				</button>
-			</div>
-			<div class="mb">
-				<button id="summaryDocument" class="button-1" role="button">
-					Summary Document
-				</button>
-			</div>
+		<div class="mb">
+			<button id="summaryDocument" class="button-1" role="button">
+				Summary Document
+			</button>
 		</div>
+	</div>
 
-		<!-- upload file -->
-		<input type="file" id="inputFile">
-    	<button type="button" id="btnUpload">Upload</button>
-		<br>
-    	<br>
-    	<textarea rows= "50" cols="110"  id="resultText" placeholder="Your PDF text will appear here..."></textarea>
-		<!-- display file -->
-		<p id="page"></p>
-		<script src="main.js"></script>
-	</body>
+	<!-- <button type="button" id="btnUpload">Upload</button> -->
+	<br>
+	<br>
+	<textarea rows="50" cols="110" id="resultText" placeholder="Your PDF text will appear here..."></textarea>
+	<!-- display file -->
+	<p id="page"></p>
+	<script src="main.js"></script>
+</body>
+
 </html>
