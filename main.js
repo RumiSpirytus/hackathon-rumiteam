@@ -24,3 +24,20 @@ async function summaryDocument() {
     console.log(result);
     console.log("This is the summary about this document");
 }
+
+const inputFile = document.getElementById("inputFile")
+const btnUpload = document.getElementById("btnUpload")
+const resultText = document.getElementById("resultText")
+
+btnUpload.addEventListener("click", () => {
+    const file = inputFile.files[0]
+    const formData = new FormData()
+    formData.append("pdfFile", file)
+    fetch("http://localhost:3000/extract-text", {
+        method: "POST",
+        body: formData
+    }).then(response => response.text())
+        .then(extractedText => {
+            resultText.value = extractedText.trim()
+        })
+})
