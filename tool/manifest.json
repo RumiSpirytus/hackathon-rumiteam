@@ -1,12 +1,19 @@
 {
-    "name": "Quickly Summarizer",
-    "version": "1.0.0",
-    "description": "Quickly summarize and generate questions for documents",
-    "manifest_version": 3,
-    "author": "Rumi TSpirytus",
-    "action": {
-        "default_popup": "index.html",
-        "default_title": "Quickly summarize"
-    },
-    "host_permissions": ["http://127.0.0.1:3000/*"]
+  "name": "Quickly Summarizer",
+  "version": "1.0.0",
+  "description": "Quickly summarize and generate questions for documents",
+  "manifest_version": 3,
+  "author": "Rumi TSpirytus",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Quickly summarize",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "16": "icon.png",
+    "32": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "host_permissions": ["http://127.0.0.1:3000/*"]
 }

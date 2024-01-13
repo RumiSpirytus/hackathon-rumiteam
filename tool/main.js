@@ -10,9 +10,9 @@ btn1.addEventListener("click", function () {
         xhr.onload = function () {
             var text = xhr.responseText;
             const summaryDocument = document.getElementById("page");
-            summaryDocument.innerHTML = text;
+            summaryDocument.innerHTML = "<h2>Summary:</h2>" + text.replaceAll('\\n', '<br><br>');
             btn1.disabled = false;
-            btn1.innerHTML = "Summarise Document";
+            btn1.innerHTML = "Summary Document";
         }
         xhr.send();
     });
@@ -27,7 +27,7 @@ btn2.addEventListener("click", function () {
         xhr.onload = function () {
             var text = xhr.responseText;
             const summaryDocument = document.getElementById("page");
-            summaryDocument.innerHTML = text;
+            summaryDocument.innerHTML = "<h2>Questions:</h2>" + text.replaceAll('\\n', '<br><br>');
             btn2.disabled = false;
             btn2.innerHTML = "Generate Questions";
         }
