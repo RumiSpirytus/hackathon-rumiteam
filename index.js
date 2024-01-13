@@ -28,7 +28,6 @@ app.post('/generate-questions', async (req, res) => {
 
     pdfParse(req.files.pdfFile).then(async (r) => {
         doc = r.text
-        // res.send(r.text);
         const messages1 = [
             { role: "user", content: `"${doc}".Generate 10 questions based on this document` },
         ];
@@ -39,6 +38,7 @@ app.post('/generate-questions', async (req, res) => {
 
 })
 
+
 app.post('/summary-document', async (req, res) => {
     var doc = ``;
     if (!req.files && !req.files.pdfFile) {
@@ -48,7 +48,6 @@ app.post('/summary-document', async (req, res) => {
 
     pdfParse(req.files.pdfFile).then(async (r) => {
         doc = r.text
-        // res.send(r.text);
         const messages2 = [
             { role: "user", content: `"${doc}".Summary this video for me ? ` },
         ]

@@ -54,6 +54,28 @@
 			flex-direction: row;
 			justify-content: space-around;
 		}
+
+		.loading {
+			display: none;
+		}
+
+		textarea {
+			font-family: Arial, sans-serif;
+			font-size: 14px;
+			padding: 10px;
+		}
+
+		/* Thiết lập màu nền và màu chữ */
+		textarea.custom {
+			background-color: #f4f4f4;
+			color: #333;
+		}
+
+		/* Thiết lập đường viền và góc bo của textarea */
+		textarea.rounded {
+			border: 2px solid #ccc;
+			border-radius: 8px;
+		}
 	</style>
 </head>
 
@@ -61,6 +83,7 @@
 	<div class="mb">
 		<h3>Generate questions and summary documents from your notes.</h>
 	</div>
+
 	<!-- upload file -->
 	<input type="file" id="inputFile" class="mb">
 
@@ -78,11 +101,11 @@
 	</div>
 
 	<!-- <button type="button" id="btnUpload">Upload</button> -->
-	<br>
-	<br>
-	<textarea rows="50" cols="110" id="resultText" placeholder="Your PDF text will appear here..."></textarea>
+	<div id="loadingIndicator" class="loading">Loading...</div>
+
 	<!-- display file -->
-	<p id="page"></p>
+	<textarea rows="30" cols="110" id="resultText" placeholder="Your PDF text will appear here..."></textarea>
+
 	<script src="main.js"></script>
 </body>
 
