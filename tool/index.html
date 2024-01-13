@@ -1,68 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" href="icon.png" />
+		<title>Rumi</title>
+		<style>
+			body {
+				width: 500px;
+			}
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="icon" href="icon.png" />
-	<title>Rumi</title>
-	<style>
-		body {
-			width: 500px;
-		}
+			.button-1 {
+				background-color: black;
+				border-radius: 6px;
+				border-style: none;
+				box-sizing: border-box;
+				color: #ffffff;
+				cursor: pointer;
+				display: inline-block;
+				font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
+					sans-serif;
+				font-size: 14px;
+				font-weight: 500;
+				height: 40px;
+				min-width: 180px;
+				line-height: 20px;
+				list-style: none;
+				margin: 0;
+				outline: none;
+				padding: 10px 16px;
+				position: relative;
+				text-align: center;
+				text-decoration: none;
+				transition: color 100ms;
+				vertical-align: baseline;
+				user-select: none;
+				-webkit-user-select: none;
+				touch-action: manipulation;
+			}
 
-		.button-1 {
-			background-color: black;
-			border-radius: 6px;
-			border-style: none;
-			box-sizing: border-box;
-			color: #FFFFFF;
-			cursor: pointer;
-			display: inline-block;
-			font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-			font-size: 14px;
-			font-weight: 500;
-			height: 40px;
-			min-width: 180px;
-			line-height: 20px;
-			list-style: none;
-			margin: 0;
-			outline: none;
-			padding: 10px 16px;
-			position: relative;
-			text-align: center;
-			text-decoration: none;
-			transition: color 100ms;
-			vertical-align: baseline;
-			user-select: none;
-			-webkit-user-select: none;
-			touch-action: manipulation;
-		}
+			.button-1:hover,
+			.button-1:focus {
+				opacity: 0.8;
+			}
 
-		.button-1:hover,
-		.button-1:focus {
-			opacity: 0.8;
-		}
+			.mb {
+				margin-bottom: 20px;
+			}
+			.body-btn {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-around;
+			}
+		</style>
+	</head>
 
-		.mb {
-			margin-bottom: 20px;
-		}
-	</style>
-</head>
+	<body>
+		<div class="mb">
+			<h3>Generate questions and summary documents from your notes.</h>
+		</div>
+		<div class="body-btn">
+			<div class="mb">
+				<button id="generateQuestions" class="button-1" role="button">
+					Generate Questions
+				</button>
+			</div>
+			<div class="mb">
+				<button id="summaryDocument" class="button-1" role="button">
+					Summary Document
+				</button>
+			</div>
+		</div>
 
-<body>
-	<div class="mb">
-		<h1>Rumi</h1>
-		<p>Generate questions and summary documents from your notes.</p>
-	</div>
-	<div class="mb">
-		<button id="generateQuestions" class="button-1" role="button">Generate Questions</button>
-	</div>
-	<div class="mb">
-		<button id="summaryDocument" class="button-1" role="button">Summary Document</button>
-	</div>
-	<p id="page"></p>
-	<script src="main.js"></script>
-</body>
-
+		<p id="page"></p>
+		<script src="mainTool.js"></script>
+	</body>
 </html>

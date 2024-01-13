@@ -1,37 +1,26 @@
-// document.getElementById("generateQuestions").addEventListener("click", generateQuestions);
-// document.getElementById("summaryDocument").addEventListener("click", summaryDocument);
+document.getElementById("generateQuestions").addEventListener("click", generateQuestions);
+document.getElementById("summaryDocument").addEventListener("click", summaryDocument);
+async function generateQuestions() {
+    const response = await fetch("http://localhost:3000/generate-questions", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+    const result = await response.json()
+    console.log(result);
+    console.log("Here are yours 10 questions based on this document!");
+}
 
-const btn1 = document.getElementById("summaryDocument");
-btn1.addEventListener("click", function () {
-    btn1.disabled = true;
-    chrome.tabs.query({ currentWindow: true, active: true }, function () {
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "http://localhost:3000/summary-document", true);
-        xhr.onload = function () {
-            var text = xhr.responseText;
-            const summaryDocument = document.getElementById("page");
-            summaryDocument.innerHTML = text;
-            btn1.disabled = false;
-            btn1.innerHTML = "Summarise Document";
-        }
-        xhr.send();
-    });
-});
 
-const btn2 = document.getElementById("generateQuestions");
-btn2.addEventListener("click", function () {
-    btn2.disabled = true;
-    chrome.tabs.query({ currentWindow: true, active: true }, function () {
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "http://localhost:3000/generate-questions", true);
-        xhr.onload = function () {
-            var text = xhr.responseText;
-            const summaryDocument = document.getElementById("page");
-            summaryDocument.innerHTML = text;
-            btn2.disabled = false;
-            btn2.innerHTML = "Generate Questions";
-        }
-        xhr.send();
-    });
-});
-
+async function summaryDocument() {
+    const response = await fetch("http://localhost:3000/summary-document", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+    const result = await response.json()
+    console.log(result);
+    console.log("This is the summary about this document");
+}
