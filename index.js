@@ -51,7 +51,7 @@ app.post('/summary-document', async (req, res) => {
     pdfParse(req.files.pdfFile).then(async (r) => {
         doc = r.text
         const messages2 = [
-            { role: "user", content: `"${doc}".Summary this video for me ? ` },
+            { role: "user", content: `"${doc}".Summary this document for me ? ` },
         ]
         const result = await client.getChatCompletions(deploymentId, messages2);
         res.json(result.choices[0].message.content)
